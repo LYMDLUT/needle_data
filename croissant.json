@@ -1,0 +1,214 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "visualneedle_300en",
+  "description": "VisualNeedle 300 (EN) is a visual needle-in-haystack benchmark for vision-language models. Each of the 300 samples poses a question about a tiny region (median ~0.1% of image area) in a relatively large photograph, and the model must locate and reason over that region to produce the correct answer. Tasks span five categories: Color Recognition, OCR Recognition, Entity Recognition, Spatial Relationship, and Occluded Object Recognition.",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "version": "1.0.0",
+  "datePublished": "2026-05-06",
+  "license": "TODO_FILL_LICENSE_SPDX_URL",
+  "url": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/",
+  "citeAs": "TODO_FILL_CITATION",
+  "creator": {
+    "@type": "Person",
+    "name": "TODO_FILL_AUTHOR_NAME",
+    "email": "TODO_FILL_AUTHOR_EMAIL"
+  },
+  "keywords": [
+    "vision-language models",
+    "visual question answering",
+    "needle-in-haystack",
+    "fine-grained perception",
+    "high-resolution images"
+  ],
+  "isLiveDataset": false,
+
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "annotations.jsonl",
+      "name": "annotations.jsonl",
+      "description": "JSON Lines file with 300 annotated samples; one JSON object per line.",
+      "contentUrl": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/visualneedle_300en.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "22bc37df2de477e743b5d5821d8ed057b9da91f92aa1cddc9b71d7980ec9ca80",
+      "contentSize": "142011 B"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "images",
+      "name": "images",
+      "description": "Original images (mixed JPEG/PNG, 300 files).",
+      "encodingFormat": "image/jpeg",
+      "includes": "datasets/visualneedle_300en/images/*"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "images-bbox",
+      "name": "images_bbox",
+      "description": "Same images with the answer bounding box drawn in red, for visualization.",
+      "encodingFormat": "image/jpeg",
+      "includes": "datasets/visualneedle_300en/images_bbox/*"
+    }
+  ],
+
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "samples",
+      "name": "samples",
+      "description": "One record per question/answer sample.",
+      "key": { "@id": "samples/id" },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "samples/id",
+          "name": "id",
+          "description": "Unique sample identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "id" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples/category",
+          "name": "category",
+          "description": "Task category. One of: Color Recognition, OCR Recognition, Entity Recognition, Spatial Relationship, Occluded Object Recognition.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "category" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples/question",
+          "name": "question",
+          "description": "Natural-language question (English).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "question" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples/answer",
+          "name": "answer",
+          "description": "Ground-truth answer; may be English or Chinese (when the answer is text rendered in the image).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "answer" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples/image_url",
+          "name": "image_url",
+          "description": "Public URL of the original image.",
+          "dataType": "sc:URL",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "image_url" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples/image_bbox_url",
+          "name": "image_bbox_url",
+          "description": "Public URL of the same image with the answer bounding box drawn (for sanity check / visualization).",
+          "dataType": "sc:URL",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "image_bbox_url" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples/bbox",
+          "name": "bbox",
+          "description": "Answer bounding box in xyxy absolute pixel coordinates: [x1, y1, x2, y2]. Origin is the top-left of the original image.",
+          "dataType": "sc:Integer",
+          "repeated": true,
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "bbox" }
+          }
+        }
+      ]
+    }
+  ],
+
+  "rai:hasSyntheticData": false,
+  "rai:dataCollection": "Images were collected from real-world photographs across diverse scenes (street markets, retail interiors, signage, household objects). Each image was paired with a question about a small region whose answer is verifiable from the pixels alone. Each sample was manually annotated with a tight bounding box around the answer region.",
+  "rai:dataAnnotationProtocol": "Human annotators wrote the question, ground-truth answer, and a tight xyxy bounding box for the answer region. A second pass verified that the answer is uniquely determinable from the bounded region.",
+  "rai:dataLimitations": [
+    "Small benchmark size (300 samples); statistical comparisons across models require care.",
+    "Five fixed task categories may not cover all needle-in-haystack failure modes.",
+    "Answers may include Chinese characters (for OCR tasks reading text in the image), which can be biased against models with weaker multilingual OCR."
+  ],
+  "rai:dataBiases": [
+    "Image domain skew: many scenes are urban/East-Asian (street food, signage), which may not be representative of all geographies.",
+    "OCR samples are weighted toward Chinese text in real-world photographs."
+  ],
+  "rai:personalSensitiveInformation": "Some images may incidentally contain bystander faces or license plates. The dataset was not curated to remove such content; users should not use it to train models that target individuals.",
+  "rai:dataUseCases": [
+    "Evaluating vision-language model performance on fine-grained, small-region perception.",
+    "Benchmarking robustness to high-resolution / cluttered scenes.",
+    "Diagnosing failure modes (color, OCR, entity, spatial, occlusion) separately."
+  ],
+  "rai:dataSocialImpact": "Intended for evaluation only; not for training. Improvements on this benchmark could lead to better assistive vision models, but the same capability could be used for invasive surveillance — users are advised to follow responsible-use practices.",
+  "rai:dataReleaseMaintenancePlan": "Hosted on Tencent COS at the URL above. Errata, if any, will be released as a versioned update (v1.0.0 → v1.0.1, etc.) at the same URL prefix.",
+  "rai:dataPreprocessingProtocol": [
+    "Images stored at original resolution (no resizing).",
+    "Bounding boxes stored in xyxy absolute pixel coordinates relative to the original image.",
+    "One bounding box was clamped from [-1, 1164, 45, 1230] to [0, 1164, 45, 1230] to stay inside image bounds."
+  ]
+}
