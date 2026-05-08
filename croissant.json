@@ -73,10 +73,10 @@
       "@id": "annotations.jsonl",
       "name": "annotations.jsonl",
       "description": "JSON Lines file with 300 annotated samples; one JSON object per line.",
-      "contentUrl": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/visualneedle_300en.jsonl",
+      "contentUrl": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/visualneedle_300en.jsonl?v=2",
       "encodingFormat": "application/jsonlines",
-      "sha256": "22bc37df2de477e743b5d5821d8ed057b9da91f92aa1cddc9b71d7980ec9ca80",
-      "contentSize": "142011 B"
+      "sha256": "eaa8d37f50349084e9888608c1ae66ace9b95fedc4bcaac11956198f405c7139",
+      "contentSize": "173811 B"
     },
     {
       "@type": "cr:FileSet",
@@ -150,6 +150,17 @@
         },
         {
           "@type": "cr:Field",
+          "@id": "samples/image_path",
+          "name": "image_path",
+          "description": "Relative path to the original image file within the dataset, e.g. 'images/<id>.jpg'.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "image_path" }
+          }
+        },
+        {
+          "@type": "cr:Field",
           "@id": "samples/image_url",
           "name": "image_url",
           "description": "Public URL of the original image.",
@@ -157,6 +168,17 @@
           "source": {
             "fileObject": { "@id": "annotations.jsonl" },
             "extract": { "column": "image_url" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "samples/image_bbox_path",
+          "name": "image_bbox_path",
+          "description": "Relative path to the bbox-annotated image file within the dataset, e.g. 'images_bbox/<id>.jpg'.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "annotations.jsonl" },
+            "extract": { "column": "image_bbox_path" }
           }
         },
         {
