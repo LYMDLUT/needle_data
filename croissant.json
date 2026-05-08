@@ -51,7 +51,7 @@
   "version": "1.0.0",
   "datePublished": "2026-05-06",
   "license": "TODO_FILL_LICENSE_SPDX_URL",
-  "url": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/",
+  "url": "https://visualneedle2-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/",
   "citeAs": "TODO_FILL_CITATION",
   "creator": {
     "@type": "Person",
@@ -73,10 +73,10 @@
       "@id": "annotations.jsonl",
       "name": "annotations.jsonl",
       "description": "JSON Lines file with 300 annotated samples; one JSON object per line.",
-      "contentUrl": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/visualneedle_300en.jsonl?v=2",
+      "contentUrl": "https://visualneedle2-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/visualneedle_300en.jsonl?v=3",
       "encodingFormat": "application/jsonlines",
-      "sha256": "eaa8d37f50349084e9888608c1ae66ace9b95fedc4bcaac11956198f405c7139",
-      "contentSize": "173811 B"
+      "sha256": "5463a2c04a851dc60afc13b14eda078ecc82989cc25acc813aabc00c890a9585",
+      "contentSize": "184231 B"
     },
     {
       "@type": "cr:FileSet",

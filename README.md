@@ -41,8 +41,10 @@ Each line in `visualneedle_300en.jsonl` is a JSON object:
   "category": "OCR Recognition",
   "question": "In the picture, what is the second character to the right of '8元'?",
   "answer": "辣",
-  "image_url": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/images/0.jpg",
-  "image_bbox_url": "https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/images_bbox/0.jpg",
+  "image_path": "images/TPROMPT9ee217718764.jpg",
+  "image_url": "https://visualneedle2-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/images/TPROMPT9ee217718764.jpg",
+  "image_bbox_path": "images_bbox/TPROMPT9ee217718764.jpg",
+  "image_bbox_url": "https://visualneedle2-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/images_bbox/TPROMPT9ee217718764.jpg",
   "bbox": [1128, 1158, 1193, 1187]
 }
 ```
@@ -61,10 +63,10 @@ draw.rectangle(bbox, outline="red", width=4)
 ## Files
 
 - `visualneedle_300en.jsonl` — annotations (300 lines)
-- `images/` — original images (300 files, mixed `.jpg` / `.png`, ~742 MB total)
-- `images_bbox/` — same images with the answer bbox drawn (for visualization / sanity check)
+- `images/` — original images (300 files, mixed `.jpg` / `.png`, ~742 MB total). Filenames are the sample `id`.
+- `images_bbox/` — same images with the answer bbox drawn (for visualization / sanity check). Filenames are the sample `id`.
 
 Hosted on Tencent COS:
 ```
-https://visualneedle-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/
+https://visualneedle2-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualneedle_300en/
 ```
