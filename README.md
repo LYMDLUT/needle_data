@@ -6,7 +6,7 @@ A visual "needle-in-haystack" benchmark for VLMs: each task asks about a tiny de
 
 - **Size**: 300 samples
 - **Language**: English questions, answers may be in English or Chinese (when answer is text in the image)
-- **Image resolution**: 599×648 to 7952×8223 (median 1440×1669)
+- **Image resolution**: width 599–7952 px, height 648–8223 px (median 1440×1667)
 - **Bbox size**: 0.012% – 4.44% of image area (median **0.10%**)
 
 ### Categories
