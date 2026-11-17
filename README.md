@@ -90,6 +90,6 @@ https://visualneedle2-1311238981.cos.ap-guangzhou.myqcloud.com/datasets/visualne
 ### 2026-11
 
 - Replaced 9 samples that failed quality review with 9 new samples (3 Color, 3 Entity, 2 OCR, 1 Spatial).
-- Fixed the question of 8 samples and the answer of 8 samples; moved the bbox of 2 samples to the corrected answer and redrew their bbox images.
-- Added `alt_answers` (26 samples) and `neg_answers` (17 samples).
+- Fixed the question of 8 samples and the answer of 9 samples; moved the bbox of 2 samples to the corrected answer and redrew their bbox images.
+- Added `alt_answers` (26 samples) and `neg_answers` (18 samples).
 - Updated 85 images with the IP-review masks.
